@@ -1,0 +1,20 @@
+# Microservice needs below mysql configuration to exectue POST & GET calls
+
+1. Install mysql
+2. create a user name 'sammy' with password ; 'password'
+3. Create a database named 'demo'
+4. Create a table named 'test' using the mysql CLI in the database demo.
+
+CREATE TABLE `test` (
+    ->   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    ->   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ->   `name` VARCHAR(128) NOT NULL DEFAULT "",
+    ->   PRIMARY KEY (`id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+# After this you can test your code using below steps;
+1. run go -> go run main_file.go
+2. curl -XPOST localhost:8080/endpoint  ==> This will execute a POST call and create a record in test table
+3. curl localhost:8080/endpoint/1  ==> This is a GET call and show you the insert record for the given id -- id 1 in this example
+
