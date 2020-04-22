@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	arr := []int{1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0}
+	i := 0
+	j := len(arr) - 1
+	//fmt.Println(i, j)
+	for i < j {
+		fmt.Println(i, j)
+		for arr[i] == 0 && i < j {
+			i++
+		}
+		for arr[j] == 1 && i < j {
+			j--
+		}
+		if i < j {
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+	}
+	fmt.Println(arr)
+}
