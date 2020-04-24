@@ -1,0 +1,36 @@
+// brute for sorting with two variables, i and j
+// for a single iteration of i, iterate j for the slice length and sort the first position
+// increse i to next position and j to i + 1 position until slice length.
+package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
+func main() {
+	argCount := len(os.Args[1:])
+	fmt.Println("length of slice:", argCount)
+	var arr []int
+	// reading string from command line and converting them to int type
+  for _, val := range os.Args[1:] {
+		i, err := strconv.Atoi(val) //stringconversion Atoi and reverse is itoa
+		if err != nil {
+			fmt.Println("incorrect type")
+		}
+		arr = append(arr, i)
+		fmt.Println(i)
+	}
+	i, j := 0, 1
+	//arr := []int{2, 4, 77, 4, 9, 10}
+	for i = 0; i < j; i++ {
+		for j = i + 1; j <= len(arr)-1; j++ {
+			if arr[i] > arr[j] {
+				fmt.Println("swap:", arr[i], arr[j])
+				arr[i], arr[j] = arr[j], arr[i]
+			}
+		}
+		fmt.Println(arr)
+	}
+}
