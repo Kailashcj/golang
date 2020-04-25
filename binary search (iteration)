@@ -1,0 +1,47 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
+func bsearch(s []int, f int) int {
+	h := len(s) - 1
+	l := 0
+	for l <= h {
+		m := (l + h) / 2
+		if s[m] == f {
+			return m
+		}
+		if f < s[m] {
+			h = m - 1
+		}
+		if f > s[m] {
+			l = m + 1
+		}
+	}
+	return -1
+}
+
+func main() {
+	//How to run this code?
+	// Make sure your array is sorted
+	// example: go run bsearch.go 1 2 3 5 8 18 20 25
+	var mys []int
+	var t int
+	for _, val := range os.Args[1:] {
+		i, err := strconv.Atoi(val)
+		if err != nil {
+			fmt.Println(err)
+		}
+		mys = append(mys, i)
+	}
+	fmt.Println("input target:")
+	_, err := fmt.Scanf("%d", &t) //read the target input from console
+	if err != nil {
+	}
+	result := bsearch(mys, t)
+	fmt.Println(result)
+
+}
