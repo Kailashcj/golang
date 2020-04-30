@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+)
+
+type data struct {
+	name string
+	age  int
+}
+
+func (d data) displayName() {
+	fmt.Println("My name is", d.name)
+}
+
+// great example of value vs pointer semantics
+// if you remove the pointer in below example, output of age in main will be "0" because you worked on value
+// if you put it as pointer (*data) semantic, output will be given value. ex. 45
+func (d *data) setAge(age int) {  
+	d.age = age
+}
+
+func main() {
+	d := data{
+		name: "kailash",
+	}
+	d.displayName()
+	d.setAge(44)
+	fmt.Println("age:", d.age)  
+
+}
