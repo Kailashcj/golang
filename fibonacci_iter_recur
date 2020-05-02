@@ -1,0 +1,29 @@
+package main
+
+import (
+	"fmt"
+)
+
+func fiboIter(num int) {
+	a := 0
+	b := 1
+	for i := 0; i < num; i++ {
+		a, b = b, a+b
+		fmt.Printf("%d\t", a)
+	}
+}
+
+func fiboRecur(num int) int {
+	if num <= 1 {
+		return 1
+	} else {
+	return fiboRecur(num - 1) + fiboRecur(num-2)
+}
+}
+
+func main() {
+
+	fiboIter(8)
+	fmt.Println(fiboRecur(7))
+
+}
