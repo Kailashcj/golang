@@ -1,0 +1,32 @@
+/* write a function which takes a month number(int) as input and returns
+an appropriate season as output. It should return seasons as mentioned below,
+Winter: 1, 2, and 12
+Spring: 3, 4, and 5
+Summer: 6, 7, and 8
+Autumn: 9, 10, and 11
+*/
+
+package main
+
+import (
+	"fmt"
+)
+
+func Season(month int) string {
+	switch month {
+	case 1, 2, 12:
+		return "Winter"
+	case 3, 4, 5:
+		return "Spring"
+	case 6, 7, 8:
+		return "Summer"
+	case 9, 10, 11:
+		return "Autumn"
+	}
+
+	return "Season unknown"
+}
+
+func main() {
+	fmt.Println(Season(3))
+}
