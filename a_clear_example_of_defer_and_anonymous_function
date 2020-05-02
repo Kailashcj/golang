@@ -1,0 +1,24 @@
+package main
+
+import (
+	"io"
+	"log"
+)
+
+func fun1(s string) (i int, err error) {
+	//This defer function has two important things;
+	// first its anonymous function with no identifier, just declared as func(){}()
+	// second this function will execute after return of fun1 returns the value 7 and EOF. i.e. how it will print those two values in the output
+	
+	defer func(){
+		log.Printf("defer is the last statement after return is executed inside fun1: %s, %d , %v\n", s, i, err)
+	}()
+	return 7, io.EOF
+}
+
+func main() {
+	fun1("Kailash")
+	//output is: 2009/11/10 23:00:00 defer is the last statement after return is executed inside fun1: Kailash, 7 , EOF
+	
+
+}
