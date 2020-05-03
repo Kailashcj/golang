@@ -1,0 +1,15 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	name := "kailash"
+	result := []rune(name)   //convert a string into a rune. rune is int32 type, this is to keep unicode chars
+	for i, j := 0, (len(result) - 1); i < j; i, j = i+1, j-1 {
+		result[i], result[j] = result[j], result[i]  //swap
+	}
+	fmt.Println(string(result)) //convert rune to string using type case
+
+}
