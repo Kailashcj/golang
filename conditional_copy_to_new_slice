@@ -1,0 +1,26 @@
+/*
+following program that traverses an array of characters, 
+and copies them to another array only if the character is different from that which precedes it.
+*/
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var arr []byte = []byte{'a', 'b', 'a', 'a', 'a', 'c', 'd', 'e', 'f', 'g'}
+	var first byte = arr[0]
+	var result []byte
+	fmt.Println(first)
+	for fst, nxt := 0, 1; nxt < len(arr); fst, nxt = fst+1, nxt+1 {
+		if arr[fst] != arr[nxt] {
+			result = append(result, arr[fst])
+		}
+		if nxt == len(arr)-1 {
+			result = append(result, arr[nxt])
+		}
+	}
+	fmt.Println(string(result))
+
+}
