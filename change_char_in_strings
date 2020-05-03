@@ -1,0 +1,23 @@
+/*
+Changing a character in a string #
+Strings are immutable. This means when str denotes a string then str[index] cannot be the left side of an assignment:
+str[i] = 'D'   
+Where i is a valid index, it gives the error cannot assign to str[i].
+
+To change a character, you first have to convert the string to an array of bytes. 
+Then, an array-item of a certain index can be changed, and the array must be converted back to a new string. 
+*/
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	name := "kailash"
+	c := []byte(name)
+	fmt.Println(string(c))
+	c[0] = 'p'
+	fmt.Println(string(c))
+}
