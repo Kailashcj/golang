@@ -1,0 +1,39 @@
+//Basic implementation of find missing number with the condition of a sorted slice of 
+// known elements in the slice
+// ToDo: This needs to be improved
+
+package main
+
+import (
+	"fmt"
+)
+
+func contains(s []int, e int) bool {  //contains function (equivalent to "in" operator in python)
+	for _, i := range s {
+		if i == e {
+			return true
+		}
+	}
+	return false
+}
+
+func main() {
+	sl := []int{1, 2, 3, 4, 5,6, 7, 9,10}  //sorted slice
+	
+	//method 1: known sorted slice of 1 to n elements 
+	sum := (10 * (10 + 1)/2)
+	var arrSum int
+	for _,v := range sl {
+		arrSum += v
+		}
+	fmt.Println(sum - arrSum)
+	
+	//method 2: makes use of a contains function to check each elements passed as argument against a element loop
+	for i := 1; i <= 10; i++ {
+		result := contains(sl, i)
+		if !result {
+			fmt.Println(i)
+		}
+	}
+
+}
