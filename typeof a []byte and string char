@@ -1,0 +1,26 @@
+// This program shows you type of values of each char when its not converted 
+// to []byte slice and when its a char in []byte slice. see the difference
+// unint8 vs int32(rune)
+
+
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+func main() {
+	name := "kailash"
+	fmt.Println(reflect.TypeOf(name))
+		bs := []byte(name)
+		for _,c := range bs {
+			fmt.Println(reflect.TypeOf(c))  //unint8 type
+			fmt.Println(string(c))
+			}
+	
+	for _, n := range name {
+		fmt.Printf("Type of n: %v and value of n: %s\n", reflect.TypeOf(n), string(n))  //int32 type
+	}
+
+}
