@@ -1,0 +1,15 @@
+package main
+
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) [][]uint8 { //uint8 meaning only positive numbers of byte length
+	mypic := make([][]uint8, dy)   //first make call to create a 2d array of length dy(say 4)
+	for i :=range mypic {  //loop through mypic, first slice
+		mypic[i] = make([]uint8, dx)  //second make call to initialize the inner slice of dx length with 0 (make initializes with defaults)
+		}
+	return mypic
+}
+
+func main() {
+	pic.Show(Pic)  // package name is pic; it has a exported func Show; which takes a [][]uint8 to show a bluescale pixels
+}
