@@ -1,0 +1,35 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+var (
+    barVal = map[string]int{"alpha": 34, "bravo": 56, "charlie": 23, "delta": 87,
+    "echo": 56, "foxtrot": 12, "golf": 34, "hotel": 16, "indio": 87, "juliet": 65, "kilo":
+    43, "lima": 98}
+)
+
+func main() {
+	fmt.Println("Hello, playground")
+	for k,v := range barVal {
+		fmt.Println(k,v)
+		}
+	keys := make([]string, len(barVal))
+	i := 0
+	for k := range barVal { //range on a map only picking keys. if you want both key:value, you should have k,v
+		keys[i] = k
+		i++
+		}
+	sort.Strings(keys) //sort package to sort keys
+	fmt.Println(keys)
+	
+	//inverting a map
+	invt := make(map[int]string, len(barVal))  //a map with int as key and string as value
+	for k,v := range barVal {
+		invt[v] = k
+		}
+	fmt.Println(invt)
+	
+}
