@@ -1,0 +1,23 @@
+//equivalent to lambda
+//functions can be passed as arguments to another func
+// anonymous func defined in the defination of another function 
+
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func compute(fn func(float64, float64) float64) float64 {  //takes anonymous func as arg
+	return fn(3, 4)
+}
+
+func main() {
+	hypot := func(x, y float64) float64 {  //anonymous function assigned to var hypot
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(7, 7))   
+	fmt.Println(compute(hypot))  // 3*3 + 4*4
+	fmt.Println(compute(math.Pow))  //3 to power 4
+}
